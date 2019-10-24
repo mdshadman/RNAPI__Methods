@@ -5,6 +5,9 @@ const ApiView = (props) => {
     const { goForFetch, goForAxios, fromFetch, fromAxios, axiosData, renderItem, FlatListItemSeparator, dataSource, loading } = props
     return (
         <View style={styles.parentContainer}>
+            <View>
+                <Text style={styles.textStyle}>In this tutorial, we will implement all the provided methods for API calls into React Native application.</Text>
+            </View>
             <View style={{ margin: 18 }}>
                 <Button
                     title={'Click using Fetch'}
@@ -37,7 +40,7 @@ const ApiView = (props) => {
             {loading &&
                 <View style={styles.loader}>
                     <ActivityIndicator size="large" color="#0c9" />
-                    <Text>Fetching Data</Text>
+                    <Text style={{fontSize:16,color:'red'}}>Loading Data...</Text>
                 </View>
             }
         </View>

@@ -3,10 +3,7 @@ import ApiView from './ApiView';
 import axios from 'axios';
 import styles from './ApiStyles';
 import {
-    StyleSheet,
     View,
-    ActivityIndicator,
-    FlatList,
     Text,
     TouchableOpacity
 } from "react-native";
@@ -31,10 +28,13 @@ class ApiContainer extends Component {
             .then(response => response.json())
             .then((responseJson) => {
                 console.log('getting data from fetch', responseJson)
-                this.setState({
-                    loading: false,
-                    dataSource: responseJson
-                })
+                setTimeout(() => {
+                    this.setState({
+                        loading: false,
+                        dataSource: responseJson
+                    })
+                }, 2000)
+
             })
             .catch(error => console.log(error))
     }
@@ -47,10 +47,12 @@ class ApiContainer extends Component {
         axios.get("https://jsonplaceholder.typicode.com/users")
             .then(response => {
                 console.log('getting data from axios', response.data);
-                this.setState({
-                    loading: false,
-                    axiosData: response.data
-                })
+                setTimeout(() => {
+                    this.setState({
+                        loading: false,
+                        axiosData: response.data
+                    })
+                }, 2000)
             })
             .catch(error => {
                 console.log(error);
